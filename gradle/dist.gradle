@@ -40,17 +40,17 @@ remotes {
     }
 }
 
-task uploadDist(dependsOn: 'assembleMainDist') << {
-    ssh.run {
-        session(remotes.sourceforge_shell_create) {
-            execute "create"
-        }
-        session(remotes.sourceforge_shell) {
-            execute "mkdir -p /home/frs/project/ical4j/$project.name/$project.version"
-        }
-        session(remotes.sourceforge) {
-            put "$buildDir/distributions/$project.name-${project.version}.zip", "/home/frs/project/ical4j/$project.name/$project.version"
-            put "$buildDir/distributions/$project.name-${project.version}.tgz", "/home/frs/project/ical4j/$project.name/$project.version"
-        }
-    }
-}
+//task uploadDist(dependsOn: 'assembleMainDist') << {
+//    ssh.run {
+//        session(remotes.sourceforge_shell_create) {
+//            execute "create"
+//        }
+//        session(remotes.sourceforge_shell) {
+//            execute "mkdir -p /home/frs/project/ical4j/$project.name/$project.version"
+//        }
+//        session(remotes.sourceforge) {
+//            put "$buildDir/distributions/$project.name-${project.version}.zip", "/home/frs/project/ical4j/$project.name/$project.version"
+//            put "$buildDir/distributions/$project.name-${project.version}.tgz", "/home/frs/project/ical4j/$project.name/$project.version"
+//        }
+//    }
+//}
